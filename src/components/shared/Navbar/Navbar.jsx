@@ -1,10 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { CloseOutlined, AlignLeftOutlined } from '@ant-design/icons';
+import { Button } from "antd";
 
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const user = true;
 
     const navItems = (
         <>
@@ -15,65 +17,97 @@ const NavBar = () => {
                 }
             >Home</NavLink>
             <NavLink
-                to="/about"
+                to="/addBlog"
                 className={({ isActive }) =>
                     isActive ? "text-custom-primary font-semibold" : "text-black"
                 }
-            >       About      </NavLink>
+            >Add Blog</NavLink>
             <NavLink
-                to="/services"
+                to="/allBlogs"
                 className={({ isActive }) =>
                     isActive ? "text-custom-primary font-semibold" : "text-black"
                 }
             >
-                Services
+                All Blogs
             </NavLink>
             <NavLink
-                to="/blog"
+                to="/featuredBlogs"
                 className={({ isActive }) =>
                     isActive ? "text-custom-primary font-semibold" : "text-black"
                 }
             >
-                Blog
+                Featured Blogs
             </NavLink>
             <NavLink
-                to="/contact"
+                to="/wishlist"
                 className={({ isActive }) =>
                     isActive ? "text-custom-primary font-semibold" : "text-black"
                 }
             >
-                Contact
+                Wishlist
             </NavLink>
-            {/* Optional: My Orders (conditionally shown later) */}
-            {/* <NavLink to="/myOrders" className="text-black">My Orders</NavLink> */}
         </>
     );
 
     return (
         <nav className="bg-white shadow-sm px-4 py-4 lg:px-10">
             <div className="flex items-center justify-between">
-                {/* Left: Hamburger menu (mobile only) */}
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="lg:hidden focus:outline-none"
-                >
-                    {isOpen ? (
-                        <CloseOutlined className="text-2xl text-black" />
-                    ) : (
-                        <AlignLeftOutlined className="text-2xl text-black" />
-                    )}
-                </button>
+                <div>
+                    {/* Left: Hamburger menu (mobile only) */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="lg:hidden focus:outline-none"
+                    >
+                        {isOpen ? (
+                            <CloseOutlined className="text-2xl text-black" />
+                        ) : (
+                            <AlignLeftOutlined className="text-2xl text-black" />
+                        )}
+                    </button>
 
+                    {/* logo */}
+
+                    <Button type="text">MindQuest</Button>
+                </div>
 
                 {/* Center Nav Items (Large Screen) */}
                 <div className="hidden lg:flex gap-6 items-center">{navItems}</div>
 
-                {/* Right: Placeholder for future buttons */}
-                <div className="hidden lg:flex gap-4">
-                    {/* <button className="btn-style">Orders</button>
-          <button className="btn-style">Sign In</button> */}
+
+                <div>
+                    {
+                        !user
+                            ?
+                            (<div className="flex items-center gap-4">
+                                <NavLink to="/wishlist"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-custom-primary font-semibold" : "text-black"
+                                    }>
+                                    signin
+                                </NavLink>
+                                <NavLink to="/wishlist"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-custom-primary font-semibold" : "text-black"
+                                    }>
+                                    sing up
+                                </NavLink>
+                            </div>)
+                            :
+                            (<div className="flex items-center gap-3">
+                                <img
+                                    src={user.photoURL}
+                                    alt="Profile"
+                                    className="w-10 h-10 rounded-full object-cover"
+                                />
+                                <button className="px-3 py-1 border border-red-400 text-red-400 hover:bg-red-400 hover:text-white rounded transition">
+                                    Logout
+                                </button>
+                            </div>)
+                    }
                 </div>
             </div>
+
+
 
             {/* Mobile Dropdown Menu */}
             {isOpen && (
