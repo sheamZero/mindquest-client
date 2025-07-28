@@ -1,0 +1,80 @@
+[
+    {
+        "_id": "b001",
+        "title": "Modern CSS Grid Layout Techniques",
+        "image": "https://i.ibb.co/zVnX3TnF/cssGrid.webp",
+        "shortDescription": "Master modern layouts using CSS Grid like a pro.",
+        "longDescription": "Learn how CSS Grid works with real examples: grid-template areas, fractional units, responsive layout management, and how to combine with Flexbox.",
+        "category": "CSS",
+        "createdAt": "2025-07-20T08:30:00Z",
+        "authorName": "Ayesha Rahman",
+        "authorEmail": "ayesha@example.com",
+        "authorPhoto": "https://i.ibb.co/ABC456/author-ayesha.jpg",
+        "wishlistUsers": []
+    },
+    {
+        "_id": "b002",
+        "title": "Deploying Node.js Apps with Docker",
+        "image": "https://i.ibb.co/tPpvVfZd/node-docker-logo.jpg",
+        "shortDescription": "Step-by-step guide to containerize your Node.js application.",
+        "longDescription": "Containerizing Node.js apps with Docker simplifies deployment across servers. This tutorial walks you through writing Dockerfiles, managing volumes, and orchestrating services.",
+        "category": "DevOps",
+        "createdAt": "2025-07-22T14:45:00Z",
+        "authorName": "Rafsan Chowdhury",
+        "authorEmail": "rafsan@example.com",
+        "authorPhoto": "https://i.ibb.co/GHI012/author-rafsan.jpg",
+        "wishlistUsers": []
+    },
+    {
+        "_id": "b003",
+        "title": "Optimizing React Performance",
+        "image": "https://i.ibb.co/gL68Z6wy/React-Performance-Optimization-Techniques-0bf4828f5a.jpg",
+        "shortDescription": "Tips and tricks to speed up your React applications.",
+        "longDescription": "From memoization, lazy loading to splitting bundles and avoiding unnecessary renders—this post covers techniques that make your React apps faster and smoother.",
+        "category": "React",
+        "createdAt": "2025-07-24T09:00:00Z",
+        "authorName": "Tanya Islam",
+        "authorEmail": "tanya@example.com",
+        "authorPhoto": "https://i.ibb.co/MNO678/author-tanya.jpg",
+        "wishlistUsers": []
+    },
+    {
+        "_id": "b004",
+        "title": "GraphQL vs REST: Choosing the Right API",
+        "image": "https://i.ibb.co/fY9KsQjq/graphql-api.gif",
+        "shortDescription": "A deep dive into when to pick GraphQL over REST APIs.",
+        "longDescription": "Compare GraphQL and REST side by side: performance, flexibility, error handling, versioning—and decide which fits your project best.",
+        "category": "API",
+        "createdAt": "2025-07-23T16:20:00Z",
+        "authorName": "Fahim Aziz",
+        "authorEmail": "fahim@example.com",
+        "authorPhoto": "https://i.ibb.co/STU234/author-fahim.jpg",
+        "wishlistUsers": []
+    },
+    {
+        "_id": "b005",
+        "title": "Serverless Functions with Firebase Cloud Functions",
+        "image": "https://i.ibb.co/nqwYFVLG/fffffffffffff.png",
+        "shortDescription": "Learn how to trigger secure server-side logic with Firebase.",
+        "longDescription": "Implement secure backend logic with Cloud Functions: onAuth triggers, HTTP endpoints, scheduled tasks, and real-time event handling.",
+        "category": "Firebase",
+        "createdAt": "2025-07-21T11:10:00Z",
+        "authorName": "Mina Hossain",
+        "authorEmail": "mina@example.com",
+        "authorPhoto": "https://i.ibb.co/YZZ890/author-mina.jpg",
+        "wishlistUsers": []
+    },
+    {
+        "_id": "b006",
+        "title": "Writing Technical Blogs That Engage",
+        "image": "https://i.ibb.co/d0bFJf19/Technology-Blogs.webp",
+        "shortDescription": "Techniques to write blogs that attract developers and readers alike.",
+        "longDescription": "Structure, tone, SEO, code snippets and readability: learn how to craft engaging developer blog posts that rank and retain readers.",
+        "category": "Writing",
+        "createdAt": "2025-07-19T07:50:00Z",
+        "authorName": "Alif Mahmud",
+        "authorEmail": "alif@example.com",
+        "authorPhoto": "https://i.ibb.co/456DEF/author-alif.jpg",
+        "wishlistUsers": []
+    }
+]

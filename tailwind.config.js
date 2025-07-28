@@ -6,9 +6,17 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
+
+      fontFamily: {
         lora: ["lora", "serif"],
-      }
+      },
+      colors: {
+        primary: "#FFFFFF",
+        card: "#FAF9F6", //card s or bg
+        accent: "#FFB23F", //btn links
+        paragraph: "#5E5E5E",
+        heading:"#2D3142",
+      },
     },
   },
   plugins: [],

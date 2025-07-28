@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { CloseOutlined, AlignLeftOutlined } from '@ant-design/icons';
 import { Button } from "antd";
@@ -50,7 +50,7 @@ const NavBar = () => {
     );
 
     return (
-        <nav className="bg-white shadow-sm px-4 py-4 lg:px-10">
+        <nav className="bg-white shadow-sm px-4 lg:px-0 py-4 ">
             <div className="flex items-center justify-between">
                 <div>
                     {/* Left: Hamburger menu (mobile only) */}
