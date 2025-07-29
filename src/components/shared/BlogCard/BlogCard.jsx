@@ -2,7 +2,7 @@ import { FaHeart, FaArrowRight } from "react-icons/fa";
 
 const BlogCard = ({ fake }) => {
     return (
-        <div className="p-6 relative w-full max-w-md flex flex-col justify-between rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group">
+        <div className="p-6 relative w-full max-w-2xl flex flex-col justify-between rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group">
 
             {/* Tilted Image Banner */}
             <div className="relative overflow-hidden border-2 border-card rounded-lg h-48">
