@@ -11,8 +11,8 @@ const RecentBlogs = () => {
 
     return (
         <section className='my-20' >
-            <h2 className="text-3xl md:text-4xl text-center font-bold text-heading mb-2">Discover Our Latest Blogs</h2>
-            <p className="text-paragraph mx-auto mt-3 mb-5 text-center text-base md:text-lg max-w-2xl"> Stay updated with fresh perspectives, insightful stories, and the latest trends. Dive into what’s new and noteworthy from our community of writers.</p>
+            <h2 className="text-2xl md:text-4xl text-center font-bold text-heading dark:text-headingDark mb-2">Discover Our Latest Blogs</h2>
+            <p className="text-paragraph dark:text-paragraphDark mx-auto mt-3 mb-5 text-center text-base md:text-lg max-w-2xl"> Stay updated with fresh perspectives, insightful stories, and the latest trends. Dive into what’s new and noteworthy from our community of writers.</p>
 
 
             <motion.div
@@ -27,7 +27,7 @@ const RecentBlogs = () => {
                 }
             </motion.div>
             <div className='flex items-center justify-center my-5'>
-                <Link to={"/addBlog"} className="mt-4 bg-accent text-white px-8 max-w-40 py-3 rounded-full hover:shadow hover:scale-105 hover:brightness-95 transition">
+                <Link to={"/addBlog"} className="mt-4 bg-accent dark:bg-accentDark dark:font-bold text-white px-8 max-w-40 py-3 rounded-full hover:shadow hover:scale-105 hover:brightness-95 transition">
                     More
                 </Link>
             </div>

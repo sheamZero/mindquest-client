@@ -9,7 +9,7 @@ const Banner = () => {
       {/* Left Content */}
       <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center h-full space-y-6 py-10 md:py-0">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-heading dark:text-white leading-tight"
+          className="text-2xl md:text-5xl font-bold text-heading dark:text-headingDark leading-tight"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -18,7 +18,7 @@ const Banner = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-xl text-paragraph text-center md:text-left dark:text-gray-300 max-w-md"
+          className="text-base md:text-xl text-paragraph text-center md:text-left dark:text-paragraphDark max-w-md"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -35,7 +35,7 @@ const Banner = () => {
           <button className="px-6 py-2 bg-accent text-white font-semibold rounded-full shadow-md hover:brightness-95 transition">
             Explore Blogs
           </button>
-          <button className="px-6 py-2 bg-transparent border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-white transition">
+          <button className="px-6 py-2 bg-transparent border-2 border-accent text-accent font-semibold rounded-full hover:bg-accent hover:text-white transition dark:border-accentDark dark:text-accentDark dark:hover:bg-accentDark dark:hover:text-white">
             Learn More
           </button>
         </motion.div>

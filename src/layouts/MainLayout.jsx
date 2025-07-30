@@ -8,10 +8,11 @@ const MainLayout = () => {
 
 
         <div>
+            <header>
+                <Navbar></Navbar>
+            </header>
             <div className="max-w-7xl mx-auto">
-                <header>
-                    <Navbar></Navbar>
-                </header>
+
                 <main className="my-12">
                     <Outlet></Outlet>
                 </main>
