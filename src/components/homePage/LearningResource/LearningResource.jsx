@@ -19,8 +19,8 @@ const LearningResource = () => {
     return (
         <section className="py-16 ">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-4xl font-bold text-heading mb-3">Learning Resources & Tutorials</h2>
-                <p className="text-paragraph max-w-2xl mx-auto mb-10">
+                <h2 className="text-2xl md:text-4xl font-bold text-heading dark:text-headingDark mb-3">Learning Resources & Tutorials</h2>
+                <p className="text-paragraph dark:text-paragraphDark max-w-2xl mx-auto mb-10">
                     Boost your skills with curated tutorials, videos, and hands-on guides. Learn by watching, doing, and exploring real-world code.
                 </p>
 

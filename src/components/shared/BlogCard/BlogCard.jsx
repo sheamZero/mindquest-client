@@ -3,7 +3,7 @@ import { FaHeart, FaArrowRight } from "react-icons/fa";
 
 const BlogCard = ({ fake }) => {
     return (
-        <div className="p-6 relative w-full max-w-3xl flex flex-col justify-between rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group bg-white dark:bg-cardDark">
+        <div className="p-6 relative w-full max-w-3xl flex flex-col justify-between rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group bg-card dark:bg-cardDark">
 
             {/* Tilted Image Banner */}
             <div className="relative overflow-hidden border-2 border-card dark:border-cardDark rounded-lg h-48">
@@ -12,7 +12,7 @@ const BlogCard = ({ fake }) => {
                     alt={fake.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
                 />
-                <div className="absolute top-3 left-3 border-2 font-bold border-accent dark:border-accentDark group-hover:bg-accent group-hover:text-white text-accent dark:text-accentDark px-3 py-1 rounded-full text-xs ">
+                <div className="absolute top-0 left-0 border-2 font-bold border-accent dark:border-accentDark group-hover:bg-accent group-hover:text-white text-accent dark:text-accentDark px-3 py-1 rounded-full text-xs ">
                     {fake.category}
                 </div>
             </div>
