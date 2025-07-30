@@ -1,31 +1,38 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { CloseOutlined, AlignLeftOutlined } from '@ant-design/icons';
-import { Button } from "antd";
+import { Button, Tooltip } from "antd";
+import { IoIosLogOut } from "react-icons/io";
+import { FcIdea } from "react-icons/fc";
+import { BiToggleLeft, BiToggleRight } from "react-icons/bi";
+import useTheme from "../../../hooks/useTheme";
+
 
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const user = true;
+    const user = false;
+    const cssss = "text-heading font-semibold scale-105 duration-150 ease-in-out transition ";
+    const [theme, setTheme] = useTheme();
 
     const navItems = (
         <>
             <NavLink
                 to="/"
                 className={({ isActive }) =>
-                    isActive ? "text-custom-primary font-semibold" : "text-black"
+                    isActive ? cssss : "text-heading font-medium "
                 }
             >Home</NavLink>
             <NavLink
                 to="/addBlog"
                 className={({ isActive }) =>
-                    isActive ? "text-custom-primary font-semibold" : "text-black"
+                    isActive ? cssss : "text-heading font-medium"
                 }
             >Add Blog</NavLink>
             <NavLink
                 to="/allBlogs"
                 className={({ isActive }) =>
-                    isActive ? "text-custom-primary font-semibold" : "text-black"
+                    isActive ? cssss : "text-heading font-medium"
                 }
             >
                 All Blogs
@@ -33,7 +40,7 @@ const NavBar = () => {
             <NavLink
                 to="/featuredBlogs"
                 className={({ isActive }) =>
-                    isActive ? "text-custom-primary font-semibold" : "text-black"
+                    isActive ? cssss : "text-heading font-medium"
                 }
             >
                 Featured Blogs
@@ -41,7 +48,7 @@ const NavBar = () => {
             <NavLink
                 to="/wishlist"
                 className={({ isActive }) =>
-                    isActive ? "text-custom-primary font-semibold" : "text-black"
+                    isActive ? cssss : "text-heading font-medium"
                 }
             >
                 Wishlist
@@ -52,7 +59,7 @@ const NavBar = () => {
     return (
         <nav className="bg-white shadow-sm px-4 lg:px-0 py-4 ">
             <div className="flex items-center justify-between">
-                <div>
+                <div className="flex items-center">
                     {/* Left: Hamburger menu (mobile only) */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -67,43 +74,56 @@ const NavBar = () => {
 
                     {/* logo */}
 
-                    <Button type="text">MindQuest</Button>
+                    <Button type="text" className="text-xl md:text-2xl flex items-center justify-center gap-0 font-semibold">
+                        <FcIdea className="font-bold text-2xl md:text-3xl"></FcIdea>
+                        <span>MindQuest</span>
+
+                    </Button>
                 </div>
 
                 {/* Center Nav Items (Large Screen) */}
                 <div className="hidden lg:flex gap-6 items-center">{navItems}</div>
 
 
-                <div>
-                    {
-                        !user
-                            ?
-                            (<div className="flex items-center gap-4">
-                                <NavLink to="/wishlist"
-                                    className={({ isActive }) =>
-                                        isActive ? "text-custom-primary font-semibold" : "text-black"
-                                    }>
-                                    signin
-                                </NavLink>
-                                <NavLink to="/wishlist"
-                                    className={({ isActive }) =>
-                                        isActive ? "text-custom-primary font-semibold" : "text-black"
-                                    }>
-                                    sing up
-                                </NavLink>
-                            </div>)
-                            :
-                            (<div className="flex items-center gap-3">
-                                <img
-                                    src={user.photoURL}
-                                    alt="Profile"
-                                    className="w-10 h-10 rounded-full object-cover"
-                                />
-                                <button className="px-3 py-1 border border-red-400 text-red-400 hover:bg-red-400 hover:text-white rounded transition">
-                                    Logout
-                                </button>
-                            </div>)
-                    }
+                <div className="flex items-center justify-between gap-3">
+                    <div>
+                        {
+                            !user
+                                ?
+                                (<div className="flex items-center gap-4">
+                                    <NavLink to="/wishlist"
+                                        className={({ isActive }) =>
+                                            isActive ? cssss : "text-black"
+                                        }>
+                                        Sign in
+                                    </NavLink>
+                                    <NavLink to="/wishlist"
+                                        className={({ isActive }) =>
+                                            isActive ? cssss : "text-black"
+                                        }>
+                                        Sing up
+                                    </NavLink>
+                                </div>)
+                                :
+                                (<div className="flex items-center gap-3">
+                                    <img
+                                        src={user.photoURL}
+                                        alt="Profile"
+                                        className="w-10 h-10 border-2 rounded-full object-cover"
+                                    />
+                                    <Tooltip title={"Logout"} position={"bottom"}>
+                                        <div className="w-10 h-10 text-white bg-accent cursor-pointer rounded-full flex items-center justify-center">
+                                            <IoIosLogOut className="text-3xl font-bold " ></IoIosLogOut>
+                                        </div>
+                                    </Tooltip>
+                                </div>)
+                        }
+                    </div>
+                    <button className="p-1 text-3xl cursor-pointer" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+                        {
+                            theme === "dark" ? <BiToggleRight></BiToggleRight> : <BiToggleLeft></BiToggleLeft>
+                        }
+                    </button>
                 </div>
             </div>
 
@@ -111,7 +131,7 @@ const NavBar = () => {
 
             {/* Mobile Dropdown Menu */}
             {isOpen && (
-                <div className="flex flex-col gap-4 mt-4 lg:hidden">{navItems}</div>
+                <div className="flex flex-col bg-white w-full left-0 p-4 absolute gap-4 mt-4 lg:hidden">{navItems}</div>
             )}
         </nav>
     );

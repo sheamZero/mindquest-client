@@ -1,3 +1,4 @@
+import { Tooltip } from "antd";
 import { FaHeart, FaArrowRight } from "react-icons/fa";
 
 const BlogCard = ({ fake }) => {
@@ -32,12 +33,14 @@ const BlogCard = ({ fake }) => {
                     <button className="flex items-center gap-1 text-base font-medium hover:text-accent hover:scale-105 py-2  transition">
                         Read More <FaArrowRight className="text-xs" />
                     </button>
-                    <button
-                        className="p-2 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition"
-                        title="Add to Wishlist"
-                    >
-                        <FaHeart />
-                    </button>
+                    <Tooltip title={"Added to the wishlist"} position={"top"}>
+                        <button
+                            className="p-2 rounded-full border border-accent text-accent hover:bg-accent hover:text-white transition"
+                            title="Add to Wishlist"
+                        >
+                            <FaHeart />
+                        </button>
+                    </Tooltip>
                 </div>
             </div>
         </div>

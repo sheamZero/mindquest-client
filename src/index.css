@@ -6,3 +6,7 @@
 body {
     font-family: "Lora", serif;
 }
+.dark body{
+    background: gray;
+    /* font: white; */
+}

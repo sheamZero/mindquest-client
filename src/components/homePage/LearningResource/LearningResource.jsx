@@ -29,14 +29,14 @@ const LearningResource = () => {
                     {tutorialVideos.map((video) => (
                         <div
                             key={video.id}
-                            className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden"
+                            className="bg-white rounded-xl shadow  transition duration-300 overflow-hidden"
                         >
                             <div className="aspect-video">
                                 <iframe
                                     className="w-full h-full"
                                     src={video.videoUrl}
                                     title={video.title}
-                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>
                             </div>

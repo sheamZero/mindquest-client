@@ -18,7 +18,7 @@ const Newsletter = () => {
     };
 
     return (
-        <section className="bg-gradient-to-tr from-[#fdfbfb] to-[#ebedee] py-14 px-6 rounded-xl shadow-lg mx-auto mt-12">
+        <section className="bg-gradient-to-tr from-[#fdfbfb] to-[#ebedee] py-14 px-6 rounded-xl shadow-lg mx-auto mb-20">
             <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
 
             <div className="text-center mb-6">
