@@ -86,13 +86,13 @@ const NavBar = () => {
                             !user
                                 ?
                                 (<div className="flex items-center gap-4">
-                                    <NavLink to="/wishlist"
+                                    <NavLink to="/signin"
                                         className={({ isActive }) =>
                                             isActive ? cssss : "text-heading dark:text-headingDark"
                                         }>
                                         Sign in
                                     </NavLink>
-                                    <NavLink to="/wishlist"
+                                    <NavLink to="/signup"
                                         className={({ isActive }) =>
                                             isActive ? cssss : "text-heading dark:text-headingDark"
                                         }>

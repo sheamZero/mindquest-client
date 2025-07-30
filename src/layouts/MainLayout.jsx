@@ -13,7 +13,7 @@ const MainLayout = () => {
             </header>
             <div className="max-w-7xl mx-auto">
 
-                <main className="my-12">
+                <main className="my-5 lg:my-10">
                     <Outlet></Outlet>
                 </main>
             </div>
