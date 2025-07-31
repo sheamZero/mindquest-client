@@ -6,12 +6,24 @@ import { IoIosLogOut } from "react-icons/io";
 import { FcIdea } from "react-icons/fc";
 import { BiToggleLeft, BiToggleRight } from "react-icons/bi";
 import useTheme from "../../../hooks/useTheme";
+import useAuth from "../../../hooks/useAuth";
+import { toast, ToastContainer } from "react-toastify";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const user = false;
     const cssss = "text-heading dark:text-headingDark font-semibold scale-105 duration-150 ease-in-out transition ";
     const [theme, setTheme] = useTheme();
+    const { logoutUser, users } = useAuth();
+
+    // logout
+    const handleLogout = () => {
+        logoutUser()
+            .then(() => {
+                toast.success("Logout success!");
+            })
+            .catch(err => toast.error({ err }))
+
+    }
 
     const navItems = (
         <>
@@ -56,6 +68,7 @@ const NavBar = () => {
 
     return (
         <nav className="bg-primary dark:bg-primaryDark shadow-sm px-4 dark:shadow-lg md:px-12 dark:border-accentDark lg:px-24 py-6">
+            <ToastContainer position="top-center" autoClose={3000} hideProgressBar ></ToastContainer>
             <div className="flex items-center justify-between">
                 <div className="flex items-center">
                     {/* Left: Hamburger menu (mobile only) */}
@@ -83,7 +96,7 @@ const NavBar = () => {
                 <div className="flex items-center justify-between gap-3">
                     <div>
                         {
-                            !user
+                            !users
                                 ?
                                 (<div className="flex items-center gap-4">
                                     <NavLink to="/signin"
@@ -102,12 +115,14 @@ const NavBar = () => {
                                 :
                                 (<div className="flex items-center gap-3">
                                     <img
-                                        src={user.photoURL}
+                                        src={users.photoURL}
                                         alt="Profile"
                                         className="w-10 h-10 border-2 rounded-full object-cover"
                                     />
                                     <Tooltip title={"Logout"} placement="bottom">
-                                        <div className="w-10 h-10 text-white bg-accent dark:bg-accentDark cursor-pointer rounded-full flex items-center justify-center">
+                                        <div
+                                            onClick={handleLogout}
+                                            className="w-10 h-10 text-white bg-accent dark:bg-accentDark cursor-pointer rounded-full flex items-center justify-center">
                                             <IoIosLogOut className="text-3xl font-bold" />
                                         </div>
                                     </Tooltip>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const RecentBlogs = () => {
-    console.log(fakeData);
+    // console.log(fakeData);
 
 
     return (

@@ -4,13 +4,20 @@ import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { updateProfile } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 const SignUp = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { registerUser } = useAuth();
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { registerUser, loginWithGoogle, loginWithGithub } = useAuth();
     const [passError, setPassError] = useState("");
 
+    // email pass sign up
     const onSubmit = (data) => {
+        setEmail(data.email);
+        setName(data.name);
         if (data.password !== data.confirm_pass) {
             setPassError("Passwords do not match");
             return;
@@ -19,16 +26,51 @@ const SignUp = () => {
             setPassError("Password must be at least 6 characters");
             return;
         }
-
         setPassError("");
-
         registerUser(data.email, data.password)
             .then(res => {
-                toast.success("User create successfully!");
-                console.log(res.user)
+                updateProfile(auth.currentUser, {
+                    displayName: data.name,
+                    photoURL: data.photo
+                })
+                    .then(() => {
+                        toast.success("User create successfully!");
+                        // console.log(res.user);
+                    })
+                    .catch(err => console.log(err))
+
             })
             .catch(err => console.log(err));
+        reset();
     };
+
+    // google login
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then((res) => {
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    email: email
+                })
+                toast.success('Login Successfull')
+            })
+            .catch(err => {
+                const errMsg = err.message;
+                toast.error({ errMsg })
+            })
+    }
+    // github login
+    const handleGithubLogin = () => {
+        loginWithGithub()
+            .then(() => {
+                toast.success("login successfull!")
+            })
+            .catch(err => {
+                toast.error({ err })
+            })
+
+    }
+
 
     return (
         <div className="min-h-[90vh] flex items-center justify-center px-4 py-10">
@@ -65,6 +107,19 @@ const SignUp = () => {
                             {...register("email", { required: true })}
                         />
                         {errors.email && <span className="text-red-500">Email is required</span>}
+                    </div>
+
+                    <div>
+                        <label className="block mb-1 text-sm text-paragraph dark:text-paragraphDark">
+                            PhotoURL
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="example@mail.com"
+                            className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#2c2c3a] text-heading dark:text-white focus:outline-accent"
+                            {...register("photo", { required: true })}
+                        />
+                        {errors.photo && <span className="text-red-500">Email is required</span>}
                     </div>
 
                     {/* Password */}
@@ -115,10 +170,14 @@ const SignUp = () => {
 
                 {/* Social Buttons */}
                 <div className="flex items-center justify-center gap-4">
-                    <button className="p-2 border rounded-full border-gray-300 dark:border-gray-600 hover:bg-accent hover:text-white transition">
+                    <button
+                        onClick={handleGoogleLogin}
+                        className="p-2 border rounded-full border-gray-300 dark:border-gray-600 hover:bg-accent hover:text-white transition">
                         <FaGoogle className="text-xl" />
                     </button>
-                    <button className="p-2 border rounded-full border-gray-300 dark:border-gray-600 hover:bg-accent hover:text-white transition">
+                    <button
+                        onClick={handleGithubLogin}
+                        className="p-2 border rounded-full border-gray-300 dark:border-gray-600 hover:bg-accent hover:text-white transition">
                         <FaGithub className="text-xl" />
                     </button>
                     <button className="p-2 border rounded-full border-gray-300 dark:border-gray-600 hover:bg-accent hover:text-white transition">

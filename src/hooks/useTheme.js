@@ -5,7 +5,7 @@ const useTheme = () => {
     const storedTheme = localStorage.getItem("theme");
     const [theme, setTheme] = useState(storedTheme || "light");
 
-    console.log(theme);
+    // console.log(theme);
 
 
     useEffect(() => {
