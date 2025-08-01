@@ -2,11 +2,13 @@ import { createContext, useEffect, useState } from "react";
 import auth from '../../src/firebase/firebase.config';
 import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from 'firebase/auth';
 
+
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
 
     // sign up user
     const registerUser = (email, password) => {
@@ -36,17 +38,6 @@ const AuthProvider = ({ children }) => {
     }
 
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log("Current User = ", currentUser);
-            setUsers(currentUser);
-            setIsLoading(false);
-        })
-        return () => {
-            unSubscribe();
-        }
-    }, [])
-
     const data = {
         users,
         registerUser,
@@ -55,6 +46,36 @@ const AuthProvider = ({ children }) => {
         loginWithEmailPass,
         logoutUser
     }
+
+
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log("Current User = ", currentUser);
+            setUsers(currentUser);
+            const email = currentUser?.email;
+            const user = { email }
+
+            // send user for token
+            fetch("http://localhost:5000/jwt", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify(user),
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+
+            setIsLoading(false);
+        })
+        return () => {
+            unSubscribe();
+        }
+    }, [])
+
+
     return (
         <AuthContext.Provider value={data}>
             {children}

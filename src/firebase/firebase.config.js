@@ -3,15 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+console.log(import.meta.env.VITE_apiKey);
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAMITosa4NEirVgRwvZE2xExBO9cxTcj_I",
-  authDomain: "mindquest-client.firebaseapp.com",
-  projectId: "mindquest-client",
-  storageBucket: "mindquest-client.firebasestorage.app",
-  messagingSenderId: "753584248595",
-  appId: "1:753584248595:web:308220eea415cc26cc2ce6"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

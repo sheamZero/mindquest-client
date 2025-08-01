@@ -30,7 +30,7 @@ const SignIn = () => {
             .then(res => {
                 toast.success("Successfully Login!");
             })
-            .catch(err => toast.error({ err }))
+            .catch(err => toast.error(err.message))
 
         reset();
     };
